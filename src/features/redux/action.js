@@ -7,7 +7,8 @@ import {
   SHOWS_SUCCESS,
   DETAILS_FAIL,
   DETAILS_REQUEST,
-  DETAILS_SUCCESS
+  DETAILS_SUCCESS,
+  REMOVE_DETAILS
 } from "./const";
 import axios from "axios";
 
@@ -49,13 +50,5 @@ export const detailsactionfunc = (id) => async (dispatch) => {
 };
 
 export const removedetails = () => (dispatch) => {
-  try {
-    dispatch({ type: DETAILS_REQUEST });
-
-    const data = "";
-
-    dispatch({ type: DETAILS_SUCCESS, payload: data });
-  } catch (error) {
-    dispatch({ type: DETAILS_FAIL, payload: error.response.data.message });
-  }
+  dispatch({ type: REMOVE_DETAILS });
 };

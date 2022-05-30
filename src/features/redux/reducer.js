@@ -7,7 +7,8 @@ import {
   SHOWS_SUCCESS,
   DETAILS_FAIL,
   DETAILS_REQUEST,
-  DETAILS_SUCCESS
+  DETAILS_SUCCESS,
+  REMOVE_DETAILS
 } from "./const";
 
 export const moviereducer = (state = { movies: [] }, action) => {
@@ -67,6 +68,10 @@ export const detailsreducer = (state = { details: [] }, action) => {
     case DETAILS_REQUEST:
       return {
         loading: true,
+        details: []
+      };
+    case REMOVE_DETAILS:
+      return {
         details: []
       };
 

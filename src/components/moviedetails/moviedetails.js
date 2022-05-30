@@ -12,6 +12,7 @@ const Moviedetails = () => {
   console.log(details);
   React.useEffect(() => {
     dispatch(detailsactionfunc(id));
+
     // cleanupfunction
     return () => {
       dispatch(removedetails());
