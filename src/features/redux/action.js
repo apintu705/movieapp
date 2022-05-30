@@ -9,7 +9,7 @@ export const moviesactionfunc = () => async (dispatch) => {
       data
     } = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=7a5e99c0
     &s="Harry"`);
-    console.log(data);
+    dispatch({ type: MOVIE_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: MOVIE_FAIL, payload: error.response.data.message });
   }
