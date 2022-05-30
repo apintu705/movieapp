@@ -1,0 +1,19 @@
+@import "../../common/colors.scss";
+
+.movielist{
+  margin:20px 0px;
+  
+  
+}
+.movielist>h2{
+  color:$font-secondary;
+  margin-bottom:10px;
+  font-weight: 400;
+  
+}
+.cardcontainer{
+  display:grid;
+  grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+  grid-gap: 20px;
+  
+}
