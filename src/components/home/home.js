@@ -2,13 +2,14 @@ import React from "react";
 import "./home.scss";
 import Movielisting from "../movielisting/movielisting";
 import { useDispatch } from "react-redux";
-import { moviesactionfunc } from "../../features/redux/action";
+import { moviesactionfunc, showsactionfunc } from "../../features/redux/action";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   React.useEffect(() => {
     dispatch(moviesactionfunc());
+    dispatch(showsactionfunc());
   }, [dispatch]);
   return (
     <div>

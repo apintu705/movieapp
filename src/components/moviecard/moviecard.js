@@ -2,7 +2,6 @@ import React from "react";
 import "./moviecard.scss";
 
 const Moviecard = ({ movie }) => {
-  console.log(movie);
   return (
     <div className="carditem">
       <div className="cardinner">
