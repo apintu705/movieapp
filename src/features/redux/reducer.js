@@ -4,7 +4,10 @@ import {
   MOVIE_SUCCESS,
   SHOWS_FAIL,
   SHOWS_REQUEST,
-  SHOWS_SUCCESS
+  SHOWS_SUCCESS,
+  DETAILS_FAIL,
+  DETAILS_REQUEST,
+  DETAILS_SUCCESS
 } from "./const";
 
 export const moviereducer = (state = { movies: [] }, action) => {
@@ -51,6 +54,32 @@ export const showreducer = (state = { shows: [] }, action) => {
       return {
         loading: false,
         shows: action.payload
+      };
+    default:
+      return {
+        ...state
+      };
+  }
+};
+
+export const detailsreducer = (state = { details: [] }, action) => {
+  switch (action.type) {
+    case DETAILS_REQUEST:
+      return {
+        loading: true,
+        details: []
+      };
+
+    case DETAILS_FAIL:
+      return {
+        loading: false,
+        error: action.payload
+      };
+
+    case DETAILS_SUCCESS:
+      return {
+        loading: false,
+        details: action.payload
       };
     default:
       return {

@@ -12,9 +12,7 @@ export const moviesactionfunc = () => async (dispatch) => {
   try {
     dispatch({ type: MOVIE_REQUEST });
 
-    const {
-      data
-    } = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=7a5e99c0
+    const { data } = await axios.get(`https://www.omdbapi.com/?apikey=7a5e99c0
     &s="Harry"&type=movie`);
     dispatch({ type: MOVIE_SUCCESS, payload: data });
   } catch (error) {
@@ -22,14 +20,24 @@ export const moviesactionfunc = () => async (dispatch) => {
   }
 };
 
-export const showsactionfunc = (h) => async (dispatch) => {
+export const showsactionfunc = () => async (dispatch) => {
   try {
     dispatch({ type: SHOWS_REQUEST });
 
-    const {
-      data
-    } = await axios.get(`https://www.omdbapi.com/?i=tt3896198&apikey=7a5e99c0
+    const { data } = await axios.get(`https://www.omdbapi.com/?apikey=7a5e99c0
     &s="Friends"&type=series`);
+
+    dispatch({ type: SHOWS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: SHOWS_FAIL, payload: error.response.data.message });
+  }
+};
+export const detailsactionfunc = (id) => async (dispatch) => {
+  try {
+    dispatch({ type: SHOWS_REQUEST });
+
+    const { data } = await axios.get(`https://www.omdbapi.com/?apikey=7a5e99c0
+    &${id}&plot=Full`);
 
     dispatch({ type: SHOWS_SUCCESS, payload: data });
   } catch (error) {
