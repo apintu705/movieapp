@@ -47,3 +47,15 @@ export const detailsactionfunc = (id) => async (dispatch) => {
     dispatch({ type: DETAILS_FAIL, payload: error.response.data.message });
   }
 };
+
+export const removedetails = () => (dispatch) => {
+  try {
+    dispatch({ type: DETAILS_REQUEST });
+
+    const data = "";
+
+    dispatch({ type: DETAILS_SUCCESS, payload: data });
+  } catch (error) {
+    dispatch({ type: DETAILS_FAIL, payload: error.response.data.message });
+  }
+};

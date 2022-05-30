@@ -1,7 +1,8 @@
 import React from "react";
 import { useParams } from "react-router-dom";
+import "./moviedetails.scss";
 import { useDispatch, useSelector } from "react-redux";
-import { detailsactionfunc } from "../../features/redux/action";
+import { detailsactionfunc, removedetails } from "../../features/redux/action";
 
 const Moviedetails = () => {
   const { id } = useParams();
@@ -11,6 +12,10 @@ const Moviedetails = () => {
   console.log(details);
   React.useEffect(() => {
     dispatch(detailsactionfunc(id));
+    // cleanupfunction
+    return () => {
+      dispatch(removedetails());
+    };
   }, [dispatch, id]);
   return (
     <div className="moviesection">
