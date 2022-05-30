@@ -4,7 +4,10 @@ import {
   MOVIE_SUCCESS,
   SHOWS_FAIL,
   SHOWS_REQUEST,
-  SHOWS_SUCCESS
+  SHOWS_SUCCESS,
+  DETAILS_FAIL,
+  DETAILS_REQUEST,
+  DETAILS_SUCCESS
 } from "./const";
 import axios from "axios";
 
@@ -34,13 +37,13 @@ export const showsactionfunc = () => async (dispatch) => {
 };
 export const detailsactionfunc = (id) => async (dispatch) => {
   try {
-    dispatch({ type: SHOWS_REQUEST });
+    dispatch({ type: DETAILS_REQUEST });
 
     const { data } = await axios.get(`https://www.omdbapi.com/?apikey=7a5e99c0
-    &${id}&plot=Full`);
+    &i=${id}&plot=Full`);
 
-    dispatch({ type: SHOWS_SUCCESS, payload: data });
+    dispatch({ type: DETAILS_SUCCESS, payload: data });
   } catch (error) {
-    dispatch({ type: SHOWS_FAIL, payload: error.response.data.message });
+    dispatch({ type: DETAILS_FAIL, payload: error.response.data.message });
   }
 };

@@ -5,12 +5,13 @@ import { detailsactionfunc } from "../../features/redux/action";
 
 const Moviedetails = () => {
   const { id } = useParams();
-  console.log(id);
-  const dispatch = useDispatch();
 
+  const dispatch = useDispatch();
+  const { details } = useSelector((state) => state.details);
+  console.log(details);
   React.useEffect(() => {
     dispatch(detailsactionfunc(id));
-  }, []);
+  }, [dispatch, id]);
   return <div>moviedetails</div>;
 };
 export default Moviedetails;
